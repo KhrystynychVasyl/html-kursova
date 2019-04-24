@@ -1,53 +1,94 @@
 <!DOCTYPE html>
+
 <html lang="uk">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Рога і копита</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#home">Домашня сторінка</a>
-                    </li>
-                    <li>
-                        <a href="#aboutus">Про нас</a>
-                    </li>
-                    <li>
-                        <a href="#cooperation">Співпраця</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Контактна інформація</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <img src="img/background.jpg" alt="background">
-            <section id="home">
-                <h1>"ANY PROJECT FOR YOUR MONEY"</h1>
-                <p>наш дивіз " поки у Вас є гроші ми вас не відпустимо"</p>
-                <img src="img/main-theme.jpg" alt="main-theme">
-                <img src="img/project-print.jpg" alt="project-print">
-                <img src="img/project-cut.jpg" alt="project-cut">
-                <p>єдиний наш проект який закінчили на голому ентузіазмі</p>
-                <img src="img/designing.jpg" alt="designing">
-                <h2>Розробка</h2>
-                <p>ви платите ми косячемо</p>
-                <img src="img/cutting.jpg" alt="cutting">
-                <h2>Виготовлення</h2>
-                <p>що було з того і робили</p>
-                <img src="img/service.jpg" alt="service">
-                <h2>Гарантійне обслуговування</h2>
-                <p>гарантуємо що знадобиться </p>
-                <p>не гарантуємо що зробимо</p>
-                <img src="img/shredding.jpg" alt="shredding">
-                <h2>Після гарантійне обслуговування</h2>
-                <p>якщо переживе гарантійне</p>
-            </section>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Рога і копита</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#home">Домашня сторінка</a>
+                </li>
+                <li>
+                    <a href="#aboutus">Про нас</a>
+                </li>
+                <li>
+                    <a href="#cooperation">Співпраця</a>
+                </li>
+                <li>
+                    <a href="#contact">Контактна інформація</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="banner">
+            <img src="img/main-theme.jpg" alt="main-theme">
+            <p class="logo">"ANY PROJECT FOR <ins>YOUR MONEY</ins>"</p>
+            <p class="slogan"><i>наш дивіз "<b>поки у Вас є гроші ми вас невідпустимо</b>"</i></p>
+        </div>
+    </header>
+
+    <main>
+
+        <!--
+        <div id="home">
+
+            <img src="img/project-print.jpg" alt="project-print">
+            <img src="img/project-cut.jpg" alt="project-cut">
+
+            <p>єдиний наш проект який закінчили на голому ентузіазмі</p>
+        </div>
+        -->
+        <div class="option-list">
+            <div class="option-card">
+                <div>
+                    <img src="img/designing.jpg" alt="designing">
+                </div>
+                <div>
+                    <h2>Розробка</h2>
+                    <p>ви платите ми косячемо</p>
+                </div>
+            </div>
+            <div class="option-card">
+                <div>
+                    <img src="img/cutting.jpg" alt="cutting">
+                </div>
+                <div>
+                    <h2>Виготовлення</h2>
+                    <p>що було з того і робили</p>
+                </div>
+            </div>
+            <div class="option-card">
+                <div>
+                    <img src="img/service.jpg" alt="service">
+                </div>
+                <div>
+                    <h2>Гарантійне обслуговування</h2>
+                    <p>гарантуємо що знадобиться </p>
+                    <p>не гарантуємо що зробимо</p>
+                </div>
+
+
+            </div>
+            <div class="option-card">
+                <div>
+                    <img src="img/shredding.jpg" alt="shredding">
+                </div>
+                <div>
+                    <h2>Після гарантійне обслуговування</h2>
+                    <p>якщо переживе гарантійне</p>
+                </div>
+            </div>
+        </div>
+        <!--
             <section id="aboutus">
                 <h2>Про нас</h2>
                 <img src="img/workplace.jpg" alt="workplace">
@@ -56,7 +97,9 @@
                 <img src="img/skydiving.jpg" alt="skydiving">
                 <p>А у цей час ми втілюємо свої МРІЇ</p>
             </section>
-        </main>
+            -->
+    </main>
+    <!--
         <footer>
             <div id="cooperation">
                 <h2>Пропозиці для співпраці</h2>
@@ -89,5 +132,7 @@
             <p>2019. Всі ваші права стають нашими.</p>
             <p>Всі наші обов'язки стають вашими.</p>
         </footer>
-    </body>
+        -->
+</body>
+
 </html>

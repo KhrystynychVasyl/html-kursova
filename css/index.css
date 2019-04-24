@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Dokdo|Raleway');
+
+:root {
+    --primary-color: black;
+    --secondary-color: white;
+    font-family: 'Raleway', sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+h1,
+h2,
+h3,
+p,
+div,
+nav,
+section,
+main,
+header {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1040px;
+    margin: auto;
+
+}
+
+header {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+header .logo {
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    font-family: 'Dokdo', cursive;
+    font-size: 2.2rem;
+}
+
+header .banner .slogan {
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    margin: 5px 0px 30px 0px;
+}
+
+header nav {
+    padding: 1px 1px 1px 1px;
+}
+
+header nav ul {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 550px;
+}
+
+header nav ul li a {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 5px 8px 5px 8px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header .banner img {
+    display: block;
+    width: 100%;
+}
+
+header .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (min-width: 1040px) {
+    header .logo {
+        font-size: 3.2rem;
+    }
+}
+
+@media (min-width: 1040px) {
+    header .logo {
+        position: relative;
+        top: -550px;
+        left: -250px;
+        width: 450px;
+    }
+}
+
+main .option-list .option-card img {
+    display: block;
+    width: 100%;
+}
+
+main .option-list .option-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+@media (min-width: 1040px) {
+    main .option-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+    main .option-list .option-card {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}
