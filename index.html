@@ -18,7 +18,7 @@
                     <a href="#home">Домашня сторінка</a>
                 </li>
                 <li>
-                    <a href="#aboutus">Про нас</a>
+                    <a href=".about">Про нас</a>
                 </li>
                 <li>
                     <a href="#cooperation">Співпраця</a>
@@ -30,7 +30,28 @@
         </nav>
 
         <div class="banner">
-            <img src="img/main-theme.jpg" alt="main-theme">
+            <div class="banner-logo">
+                <div class="game-container" hidden>
+                    <form>
+                        <button style="height:50px;width:75px">Start</button>
+                        <button style="height:50px;width:50px">End</button><br>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button><br>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button><br>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button>
+                        <button style="height:50px;width:50px"></button>
+                    </form>
+                </div>
+
+                <div class="logo-container">
+                    <p class="logoShift"></p>
+                </div>
+                <img src="img/main-theme.jpg" alt="main-theme">
+            </div>
             <p class="logo">"ANY PROJECT FOR <ins>YOUR MONEY</ins>"</p>
             <p class="slogan"><i>наш дивіз "<b>поки у Вас є гроші ми вас невідпустимо</b>"</i></p>
         </div>
@@ -38,66 +59,88 @@
 
     <main>
 
-        <!--
         <div id="home">
-
-            <img src="img/project-print.jpg" alt="project-print">
-            <img src="img/project-cut.jpg" alt="project-cut">
-
-            <p>єдиний наш проект який закінчили на голому ентузіазмі</p>
-        </div>
-        -->
-        <div class="option-list">
-            <div class="option-card">
+            <div class="home-img">
                 <div>
-                    <img src="img/designing.jpg" alt="designing">
+                    <img src="img/project-print.jpg" alt="project-print">
                 </div>
                 <div>
-                    <h2 class="designate">Розробка</h2>
-                    <p class="cardtext">ви платите ми косячемо</p>
+                    <img src="img/project-cut.jpg" alt="project-cut">
                 </div>
             </div>
-            <div class="option-card">
-                <div>
-                    <img src="img/cutting.jpg" alt="cutting">
-                </div>
-                <div>
-                    <h2 class="designate">Виготовлення</h2>
-                    <p class="cardtext">що було з того і робили</p>
-                </div>
-            </div>
-            <div class="option-card">
-                <div>
-                    <img src="img/service.jpg" alt="service">
-                </div>
-                <div>
-                    <h2 class="designate">Гарантійне обслуговування</h2>
-                    <p class="cardtext">гарантуємо що знадобиться </p>
-                    <p class="cardtext">не гарантуємо що зробимо</p>
-                </div>
-
-
-            </div>
-            <div class="option-card">
-                <div>
-                    <img src="img/shredding.jpg" alt="shredding">
-                </div>
-                <div>
-                    <h2 class="designate">Після гарантійне обслуговування</h2>
-                <p class="cardtext">якщо переживе гарантійне</p>
-                </div>
+            <div class="cardtext">
+                <p><ins><i>єдиний</i></ins> наш проект <ins>
+                    <i>який закінчили</i></ins> на голому ентузіазмі</p>
             </div>
         </div>
-        <!--
-            <section id="aboutus">
-                <h2>Про нас</h2>
-                <img src="img/workplace.jpg" alt="workplace">
-                <p>Ви думаєте що ми працюємо</p>
-                <p>над вашими ідеями</p>
-                <img src="img/skydiving.jpg" alt="skydiving">
-                <p>А у цей час ми втілюємо свої МРІЇ</p>
-            </section>
-            -->
+        <section class="workproperties">
+            <h2 class="worktext">Наші можливості</h2>
+            <div class="option-list">
+                <div class="option-card">
+                    <div>
+                        <img src="img/designing.jpg" alt="designing">
+                    </div>
+                    <div>
+                        <h2 class="designate">Розробка</h2>
+                        <p class="cardtext">ви платите ми косячемо</p>
+                    </div>
+                </div>
+                <div class="option-card">
+                    <div>
+                        <h2 class="designate">Виготовлення</h2>
+                        <p class="cardtext">що було з того і робили</p>
+                    </div>
+                    <div>
+                        <img src="img/cutting.jpg" alt="cutting">
+                    </div>
+
+                </div>
+                <div class="option-card">
+                    <div>
+                        <img src="img/service.jpg" alt="service">
+                    </div>
+                    <div>
+                        <h2 class="designate">Гарантійне обслуговування</h2>
+                        <p class="cardtext">гарантуємо що знадобиться </p>
+                        <p class="cardtext">не гарантуємо що зробимо</p>
+                    </div>
+
+
+                </div>
+                <div class="option-card">
+                    <div>
+                        <h2 class="designate">Після гарантійне обслуговування</h2>
+                        <p class="cardtext">якщо переживе гарантійне</p>
+                    </div>
+                    <div>
+                        <img src="img/shredding.jpg" alt="shredding">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="about">
+            <h2 class="aboutustext">Про нас</h2>
+            <div class="aboutus">
+                <div>
+                    <div>
+                        <img src="img/workplace.jpg" alt="workplace">
+                    </div>
+                    <div>
+                        <p>Ви думаєте що ми працюємо</p>
+                        <p>над вашими ідеями</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="img/skydiving.jpg" alt="skydiving">
+                    </div>
+                    <div>
+                        <p>А у цей час ми втілюємо свої МРІЇ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <!--
         <footer>
@@ -133,6 +176,8 @@
             <p>Всі наші обов'язки стають вашими.</p>
         </footer>
         -->
+
+    <script src="js/index.js"></script>
 </body>
 
 </html>

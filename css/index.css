@@ -7,6 +7,12 @@
     scroll-behavior: smooth;
 }
 
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 
 h1,
 h2,
@@ -27,26 +33,84 @@ body {
 
 }
 
-header, main .option-list {
+header,
+main #home,
+main #aboutus main .option-list,
+main .workproperties,
+main .about {
     background-image: url(../img/background.jpg);
     background-size: cover;
     background-position: center;
 
 }
 
-header .logo {
+main .workproperties,
+main .about {
+    text-align: center;
+
+}
+
+header .logo,
+header .logoShift {
     margin: 10px 10px 10px 10px;
     text-align: center;
     font-family: 'Dokdo', cursive;
     font-size: 2.2rem;
 }
 
+header .banner-logo {
+    position: relative;
+    display: inline-block;
+}
+
+header .logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -100%, -140%);
+    text-align: center;
+}
+
+.game-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -0%, -50%);
+    text-align: center;
+}
+
+
 header .banner .slogan {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-decoration: underline;
     margin: 5px 0px 30px 0px;
 }
+
+.worktext,
+.aboutustext {
+    margin: auto;
+    padding: 10px;
+    font-size: 3.2em;
+}
+
+@media (max-width: 800px) {
+    header .banner .slogan {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header .banner .slogan {
+        font-size: 1.2rem;
+    }
+    .worktext,
+    .aboutustext {
+        font-size: 1.8em;
+    }
+}
+
+
 
 header nav {
     padding: 1px 1px 1px 1px;
@@ -88,93 +152,148 @@ header .banner {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-bottom: double;
+}
+
+
+
+main #home {
+    display: grid;
+    grid-template-rows: 7fr 2fr;
+    grid-gap: 10px;
+    border-bottom: double;
+}
+
+main #home .cardtext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+main #home .home-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+main #home img {
+    display: block;
+    width: 100%
+}
+
+main .aboutus {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    border-bottom: double;
 }
 
 @media (min-width: 1040px) {
-    header .logo {
+    main .aboutus {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        border-bottom: double;
+    }
+}
+
+main .aboutus img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 96%;
+}
+
+.aboutus p {
+    font-size: 2.2rem;
+}
+
+
+@media (min-width: 1040px) {
+    header .logo,
+    header .logoShift {
         font-size: 3.2rem;
     }
 }
 
 @media (min-width: 1040px) {
-    header .logo {
-        position: relative;
-        top: -550px;
-        left: -250px;
-        width: 450px;
-    }
-}
-
-
-@media (max-width: 1040px) {
-    .option-card .designate {
-        font-size: 2.9em;
-    }
-}
-
-@media (max-width: 1040px) {
-    .option-card .cardtext {
+    #home .cardtext {
         font-size: 2.2em;
     }
 }
 
+@media (max-width: 1040px) {
+    .designate {
+        font-size: 2.9em;
+    }
+    .cardtext {
+        font-size: 2.2em;
+    }
+    .aboutus p {
+        font-size: 2.9rem;
+    }
+}
+
+
 @media (max-width: 950px) {
-    .option-card .designate {
+    .designate {
         font-size: 2.5em;
     }
-}
-
-@media (max-width: 950px) {
-    .option-card .cardtext {
+    .cardtext {
         font-size: 2.0em;
+    }
+    .aboutus p {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 750px) {
-    .option-card .designate {
+    .designate {
         font-size: 2.0em;
     }
-}
-
-@media (max-width: 750px) {
-    .option-card .cardtext {
+    .cardtext {
         font-size: 1.6em;
     }
+    .aboutus p {
+        font-size: 2.0rem;
+    }
 }
 
 @media (max-width: 600px) {
-    .option-card .designate {
+    .designate {
         font-size: 1.45em;
     }
-}
-
-@media (max-width: 600px) {
-    .option-card .cardtext {
+    .cardtext {
         font-size: 1.25em;
     }
+    .aboutus p {
+        font-size: 1.45rem;
+    }
 }
 
 @media (max-width: 400px) {
-    .option-card .designate {
+    .designate {
         font-size: 1.3em;
     }
-}
-
-@media (max-width: 400px) {
-    .option-card .cardtext {
+    .cardtext {
         font-size: 1.11em;
     }
-}
-
-@media (max-width: 360px) {
-    .option-card .designate {
-        font-size: 1.2em;
+    .aboutus p {
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 360px) {
-    .option-card .cardtext {
+    .designate {
+        font-size: 1.2em;
+    }
+    .cardtext {
         font-size: 1.0em;
+    }
+    .aboutus p {
+        font-size: 1.2rem;
     }
 }
 
@@ -193,10 +312,22 @@ main .option-list .option-card {
 
 }
 
+main .option-list {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: double;
+}
+
 @media (min-width: 1040px) {
     main .option-list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         grid-gap: 10px;
     }
     main .option-list .option-card {
