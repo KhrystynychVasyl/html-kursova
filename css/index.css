@@ -66,9 +66,15 @@ body .containermy {
     }
 }
 
-@media (min-width: 1040px) {
+@media (min-width: 1039px) {
     body .containermy {
         max-width: 1020px;
+    }
+}
+
+@media (min-width: 1040px) {
+    body .containermy {
+        max-width: 1040px;
     }
 }
 
@@ -92,17 +98,6 @@ body .containermy {
     text-align: center;
 }
 
-/*
-header,
-main #home,
-main #aboutus main .option-list,
-main .workproperties,
-main .about {
-    background-image: url(../img/background.jpg);
-    background-size: cover;
-    background-position: center;
-}*/
-
 main .workproperties,
 main .about {
     padding: 10px 0 10px 0;
@@ -121,7 +116,7 @@ header .logoShift {
     font-size: 2.2rem;
 }
 
-header .logo-style {
+header .logo-style, .containermy .logo-style {
     margin: 10px 10px 10px 10px;
     text-align: center;
     font-family: 'Dokdo', cursive;
@@ -170,8 +165,6 @@ header .logo-container {
     justify-content: center;
 }
 
-
-
 header .banner .slogan {
     text-align: center;
     font-size: 1.5rem;
@@ -201,11 +194,11 @@ header .banner .slogan {
         font-size: 1.8em;
     }
 }
-
+/*
 header nav ul li a:hover {
     text-decoration: underline;
 }
-
+*/
 header .banner img {
     display: block;
     width: 100%;
