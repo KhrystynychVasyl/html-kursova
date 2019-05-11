@@ -19,6 +19,8 @@ function shiftLogo() {
 }
 let count = 0;
 
+document.getElementById('gameStartButton').addEventListener('click', ()=>document.querySelector('.game-container').hidden = false);
+
 document.querySelector('.playgame').onmouseover = function() {
     count++;
     if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 50);
