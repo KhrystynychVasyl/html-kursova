@@ -3,182 +3,223 @@
 <html lang="uk">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Рога і копита</title>
-    <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>інженерний інжиніринг</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#home">Домашня сторінка</a>
-                </li>
-                <li>
-                    <a href=".about">Про нас</a>
-                </li>
-                <li>
-                    <a href="#cooperation">Співпраця</a>
-                </li>
-                <li>
-                    <a href="#contact">Контактна інформація</a>
-                </li>
-            </ul>
-        </nav>
+    <div class="containermy">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-pad">
+                <a class="navbar-brand logo-style logoclock" href="#">
+                    <div class="clock">24:24:00</div>
+                    <div>"ANY PROJECT <br></b>FOR <ins>YOUR MONEY</ins>"</div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Домашня сторінка <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">Про нас</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cooperation">Співпраця</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Контактна інформація</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="banner">
+                <div class="banner-logo">
+                    <div class="game-container" hidden>
+                            <div class="game-start-stop">
+                                <div>
+                                    <button style="height:50px;width:77px" class="startButton btn btn-success">Start</button>
+                                    <button style="height:50px;width:77px" class="endButton btn btn-danger">End</button><br />
+                                </div>
+                                <div class="game-grid">
+                                    <div>
+                                        <button style="height:50px;width:50px" class="sixthButton btn btn-light">`</button>
+                                        <button style="height:50px;width:50px" class="fifthButton btn btn-light">`</button>
+                                        <button style="height:50px;width:50px" class="fourthButton btn btn-light">`</button>
+                                    </div>
+                                    <div><button style="height:50px;width:50px" class="seventhButton btn btn-light">`</button>
+                                        <button style="height:50px;width:50px" class="dotButton btn btn-info">X</button>
+                                        <button style="height:50px;width:50px" class="thirdButton btn btn-light">`</button>
+                                    </div>
+                                    <div><button style="height:50px;width:50px" class="zeroButton btn btn-light">`</button>
+                                        <button style="height:50px;width:50px" class="firstButton btn btn-light">`</button>
+                                        <button style="height:50px;width:50px" class="secondButton btn btn-light">`</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
 
-        <div class="banner">
-            <div class="banner-logo">
-                <div class="game-container" hidden>
-                    <form>
-                        <button style="height:50px;width:77px" class="startButton">Start</button>
-                        <button style="height:50px;width:77px" class="endButton">End</button><br>
-                        <div class="game-grid">
-                            <button style="height:50px;width:50px" class="sixthButton">`</button>
-                            <button style="height:50px;width:50px" class="fifthButton">`</button>
-                            <button style="height:50px;width:50px" class="fourthButton">`</button><br>
-                            <button style="height:50px;width:50px" class="seventhButton">`</button>
-                            <button style="height:50px;width:50px" class="dotButton">X</button>
-                            <button style="height:50px;width:50px" class="thirdButton">`</button><br>
-                            <button style="height:50px;width:50px" class="zeroButton">`</button>
-                            <button style="height:50px;width:50px" class="firstButton">`</button>
-                            <button style="height:50px;width:50px" class="secondButton">`</button>
+                    <div class="logo-container">
+                        <p class="logoShift"></p>
+                    </div>
+                    <img src="img/main-theme.jpg" alt="main-theme" />
+                </div>
+                <p class="logo">"ANY PROJECT FOR <ins>YOUR MONEY</ins>"</p>
+                <p class="slogan">
+                    <i>наш дивіз "<b>поки у Вас є гроші ми вас не відпустимо</b>"</i>
+                </p>
+            </div>
+        </header>
+
+        <main>
+            <div id="home">
+                <div class="home-img">
+                    <div>
+                        <img src="img/project-print.jpg" alt="project-print" />
+                    </div>
+                    <div>
+                        <img src="img/project-cut.jpg" alt="project-cut" />
+                    </div>
+                </div>
+                <div class="cardtext">
+                    <p>
+                        <ins><i>єдиний</i></ins> наш проект
+                        <ins> <i>який закінчили</i></ins> на голому ентузіазмі
+                    </p>
+                </div>
+            </div>
+            <section class="workproperties">
+                <h2 class="worktext">Наші можливості</h2>
+                <div class="option-list">
+                    <div class="option-card">
+                        <div>
+                            <img src="img/designing.jpg" alt="designing" />
                         </div>
+                        <div>
+                            <h2 class="designate">Розробка</h2>
+                            <p class="cardtext">ви платите ми косячемо</p>
+                        </div>
+                    </div>
+                    <div class="option-card">
+                        <div>
+                            <h2 class="designate">Виготовлення</h2>
+                            <p class="cardtext">що було з того і робили</p>
+                        </div>
+                        <div>
+                            <img src="img/cutting.jpg" alt="cutting" />
+                        </div>
+                    </div>
+                    <div class="option-card">
+                        <div>
+                            <img src="img/service.jpg" alt="service" />
+                        </div>
+                        <div>
+                            <h2 class="designate">Гарантійне обслуговування</h2>
+                            <p class="cardtext">гарантуємо що знадобиться</p>
+                            <p class="cardtext">не гарантуємо що зробимо</p>
+                        </div>
+                    </div>
+                    <div class="option-card">
+                        <div>
+                            <h2 class="designate">Після гарантійне обслуговування</h2>
+                            <p class="cardtext">якщо переживе гарантійне</p>
+                        </div>
+                        <div>
+                            <img src="img/shredding.jpg" alt="shredding" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about" id="about">
+                <h2 class="aboutustext">Про нас</h2>
+                <div class="aboutus">
+                    <div>
+                        <div>
+                            <img src="img/workplace.jpg" alt="workplace" class="playgame" />
+                        </div>
+                        <div>
+                            <p>Ви думаєте що ми працюємо</p>
+                            <p>над вашими ідеями</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="img/skydiving.jpg" alt="skydiving" />
+                        </div>
+                        <div>
+                            <p>А у цей час ми втілюємо свої МРІЇ</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="down-box">
+                <div id="contact">
+                    <h3>Контакти</h3>
+                    <div class="contact-box">
+                        <div>
+                            <div class="font-height">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="down-box-text-h">АДРЕСА:</p>
+                                <p class="down-box-text">Десь на мальдівах</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-height">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="down-box-text-h">ГОДИНИ РОБОТИ:</p>
+                                <p class="down-box-text">СР. 28 ЛЮТОГО 12.00-13.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cooperation">
+                    <h3>Пропозиці для співпраці</h3>
+                    <form>
+                        <input type="text" name="name" placeholder="Ваше Ім'я" required>
+                        <br>
+                        <br>
+                        <input type="text" name="name" placeholder="Ваш електронний адрес" required>
+                        <br>
+                        <br>
+                        <textarea name="zamovlennja" placeholder="Коротко про ваше замовлення"></textarea>
+                        <br>
+                        <input type="checkbox" name="option1" value="yes"> дорого
+                        <input type="checkbox" name="option2" value="yes"> довго
+                        <br>
+                        <p>при виборі менше двох пунктів <br>заявка необробляється</p>
+                        <br>
+                        <input type="submit" value="Відправити">
+                        <br>
                     </form>
                 </div>
 
-                <div class="logo-container">
-                    <p class="logoShift"></p>
-                </div>
-                <img src="img/main-theme.jpg" alt="main-theme">
+
             </div>
-            <p class="logo">"ANY PROJECT FOR <ins>YOUR MONEY</ins>"</p>
-            <p class="slogan"><i>наш дивіз "<b>поки у Вас є гроші ми вас не відпустимо</b>"</i></p>
-        </div>
-    </header>
-
-    <main>
-
-        <div id="home">
-            <div class="home-img">
-                <div>
-                    <img src="img/project-print.jpg" alt="project-print">
-                </div>
-                <div>
-                    <img src="img/project-cut.jpg" alt="project-cut">
-                </div>
-            </div>
-            <div class="cardtext">
-                <p><ins><i>єдиний</i></ins> наш проект <ins>
-                    <i>який закінчили</i></ins> на голому ентузіазмі</p>
-            </div>
-        </div>
-        <section class="workproperties">
-            <h2 class="worktext">Наші можливості</h2>
-            <div class="option-list">
-                <div class="option-card">
-                    <div>
-                        <img src="img/designing.jpg" alt="designing">
-                    </div>
-                    <div>
-                        <h2 class="designate">Розробка</h2>
-                        <p class="cardtext">ви платите ми косячемо</p>
-                    </div>
-                </div>
-                <div class="option-card">
-                    <div>
-                        <h2 class="designate">Виготовлення</h2>
-                        <p class="cardtext">що було з того і робили</p>
-                    </div>
-                    <div>
-                        <img src="img/cutting.jpg" alt="cutting">
-                    </div>
-
-                </div>
-                <div class="option-card">
-                    <div>
-                        <img src="img/service.jpg" alt="service">
-                    </div>
-                    <div>
-                        <h2 class="designate">Гарантійне обслуговування</h2>
-                        <p class="cardtext">гарантуємо що знадобиться </p>
-                        <p class="cardtext">не гарантуємо що зробимо</p>
-                    </div>
-
-
-                </div>
-                <div class="option-card">
-                    <div>
-                        <h2 class="designate">Після гарантійне обслуговування</h2>
-                        <p class="cardtext">якщо переживе гарантійне</p>
-                    </div>
-                    <div>
-                        <img src="img/shredding.jpg" alt="shredding">
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <section class="about">
-            <h2 class="aboutustext">Про нас</h2>
-            <div class="aboutus">
-                <div>
-                    <div>
-                        <img src="img/workplace.jpg" alt="workplace" class="playgame">
-                    </div>
-                    <div>
-                        <p>Ви думаєте що ми працюємо</p>
-                        <p>над вашими ідеями</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img src="img/skydiving.jpg" alt="skydiving">
-                    </div>
-                    <div>
-                        <p>А у цей час ми втілюємо свої МРІЇ</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!--
+        </main>
         <footer>
-            <div id="cooperation">
-                <h2>Пропозиці для співпраці</h2>
-                <form>
-                    <input type="text" name="name" placeholder="Ваше Ім'я" required>
-                    <br>
-                    <br>
-                    <input type="text" name="name" placeholder="Ваш електронний адрес" required>
-                    <br>
-                    <br>
-                    <textarea name="zamovlennja" placeholder="Коротко про ваше замовлення"></textarea>
-                    <br>
-                    <input type="checkbox" name="option1" value="yes">
-                    дорого
-                <input type="checkbox" name="option2" value="yes">
-                    довго
-                <br>
-                    <p>при виборі менше двох пунктів заявка необробляється</p>
-                    <br>
-                    <input type="submit" value="Відправити">
-                </form>
+            <div class="copyright">
+                <div><i class="far fa-copyright"></i></div>
+                <div>
+                    <p>2019. Всі ваші права стають нашими.</p>
+                    <p>Всі наші обов'язки стають вашими.</p>
+                </div>
             </div>
-            <div id="contact">
-                <h3>Контакти</h3>
-                <p>АДРЕСА:</p>
-                <p>Десь на мальдівах</p>
-                <p>ГОДИНИ РОБОТИ:</p>
-                <p>СР. 28 ЛЮТОГО 12.00-13.00</p>
-            </div>
-            <p>2019. Всі ваші права стають нашими.</p>
-            <p>Всі наші обов'язки стають вашими.</p>
         </footer>
-        -->
-
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
 </body>
 

@@ -4,6 +4,7 @@
     --primary-color: black;
     --secondary-color: white;
     font-family: 'Raleway', sans-serif;
+
     scroll-behavior: smooth;
 }
 
@@ -13,13 +14,11 @@
     box-sizing: border-box;
 }
 
-
 h1,
 h2,
 h3,
 p,
 div,
-nav,
 section,
 main,
 header {
@@ -28,11 +27,72 @@ header {
 }
 
 body {
-    max-width: 1040px;
-    margin: auto;
-
+    display: grid;
+    justify-content: center;
 }
 
+body .containermy {
+    max-width: 1040px;
+    min-width: 320px;
+}
+
+@media (min-width: 320px) {
+    body .containermy {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 480px) {
+    body .containermy {
+        max-width: 440px;
+    }
+}
+
+@media (min-width: 576px) {
+    body .containermy {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    body .containermy {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 940px) {
+    body .containermy {
+        max-width: 910px;
+    }
+}
+
+@media (min-width: 1040px) {
+    body .containermy {
+        max-width: 1020px;
+    }
+}
+
+.containermy {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.nav-pad {
+    padding: 0 3px 0 3px;
+}
+
+.logoclock {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 78px auto;
+    grid-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*
 header,
 main #home,
 main #aboutus main .option-list,
@@ -41,8 +101,7 @@ main .about {
     background-image: url(../img/background.jpg);
     background-size: cover;
     background-position: center;
-
-}
+}*/
 
 main .workproperties,
 main .about {
@@ -56,6 +115,13 @@ header .logoShift {
     text-align: center;
     font-family: 'Dokdo', cursive;
     font-size: 2.2rem;
+}
+
+header .logo-style {
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    font-family: 'Dokdo', cursive;
+    font-size: 1.2rem;
 }
 
 header .banner-logo {
@@ -72,12 +138,34 @@ header .logo-container {
 }
 
 .game-container {
+
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
     position: fixed;
     top: 50%;
     left: 50%;
     text-align: center;
-    transform: translate( -50%, -50%)
+    transform: translate( -50%, -50%);
+    padding: 5px;
+    background-color: black;
+    border-radius: 10px;
 }
+
+.game-start-stop {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 5px;
+    justify-content: center;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-gap: 4px;
+    justify-content: center;
+}
+
 
 
 header .banner .slogan {
@@ -94,13 +182,13 @@ header .banner .slogan {
     font-size: 3.2em;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 767px) {
     header .banner .slogan {
         font-size: 1.4rem;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 575px) {
     header .banner .slogan {
         font-size: 1.2rem;
     }
@@ -108,34 +196,6 @@ header .banner .slogan {
     .aboutustext {
         font-size: 1.8em;
     }
-}
-
-
-
-header nav {
-    padding: 1px 1px 1px 1px;
-}
-
-header nav ul li {
-    margin: 8px 0;
-}
-
-header nav ul {
-    display: flex;
-    padding: 0;
-    list-style-type: none;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
-header nav ul li a {
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 5px 8px 5px 8px;
-    text-decoration: none;
-    color: var(--primary-color);
 }
 
 header nav ul li a:hover {
@@ -222,7 +282,7 @@ main .aboutus img {
     }
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1039px) {
     .designate {
         font-size: 2.9em;
     }
@@ -235,7 +295,7 @@ main .aboutus img {
 }
 
 
-@media (max-width: 950px) {
+@media (max-width: 939px) {
     .designate {
         font-size: 2.5em;
     }
@@ -247,7 +307,7 @@ main .aboutus img {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 767px) {
     .designate {
         font-size: 2.0em;
     }
@@ -259,7 +319,7 @@ main .aboutus img {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 575px) {
     .designate {
         font-size: 1.45em;
     }
@@ -271,7 +331,7 @@ main .aboutus img {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 479px) {
     .designate {
         font-size: 1.3em;
     }
@@ -283,7 +343,7 @@ main .aboutus img {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 319px) {
     .designate {
         font-size: 1.2em;
     }
@@ -334,4 +394,220 @@ main .option-list {
         grid-template-columns: 1fr;
         grid-gap: 10px;
     }
+}
+
+
+main .down-box {
+    padding: 40px 0px 40px 0px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: double;
+}
+
+main .contact-box {
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main #contact {
+    display: grid;
+    grid-gap: 20px;
+
+}
+
+@media (max-width: 767px) {
+    main .down-box {
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+
+    }
+    main .contact-box {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+}
+
+footer {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    font-size: 1.5em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fa-map-marker-alt {
+    font-size: 70px;
+}
+
+.fa-clock {
+    font-size: 60px;
+}
+
+.font-height {
+    height: 70px;
+}
+
+@media (max-width: 939px) {
+    footer {
+        font-size: 1.4em;
+    }
+    .fa-map-marker-alt {
+        font-size: 60px;
+    }
+    .fa-clock {
+        font-size: 50px;
+    }
+    .font-height {
+        height: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    footer {
+        font-size: 1.3em;
+    }
+    .fa-map-marker-alt {
+        font-size: 50px;
+    }
+    .fa-clock {
+        font-size: 40px;
+    }
+    .font-height {
+        height: 50px;
+    }
+}
+
+@media (max-width: 575px) {
+    footer {
+        font-size: 1.0em;
+    }
+    .fa-map-marker-alt {
+        font-size: 40px;
+    }
+    .fa-clock {
+        font-size: 30px;
+    }
+    .font-height {
+        height: 40px;
+    }
+}
+
+.down-box-text-h {
+    font-weight: 900;
+    font-size: 2.0rem;
+    color: white;
+}
+
+.down-box-text {
+    font-weight: 700;
+    font-size: 1.9rem;
+
+}
+
+main #contact h3 {
+    font-size: 3.0rem;
+}
+
+@media (max-width: 1039px) {
+    .down-box-text-h {
+        font-size: 1.8rem;
+    }
+
+    .down-box-text {
+        font-size: 1.7rem;
+    }
+    main #contact h3 {
+        font-size: 2.4rem;
+    }
+    main .down-box {
+        padding: 30px 0px 30px 0px;
+    }
+}
+
+
+@media (max-width: 939px) {
+    .down-box-text-h {
+        font-size: 1.9rem;
+    }
+
+    .down-box-text {
+        font-size: 1.4rem;
+    }
+    main #contact h3 {
+        font-size: 2.1rem;
+    }
+    main .down-box {
+        padding: 25px 0px 25px 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .down-box-text-h {
+        font-size: 1.6rem;
+    }
+
+    .down-box-text {
+        font-size: 1.8rem;
+    }
+    main #contact h3 {
+        font-size: 2.4rem;
+    }
+    main .down-box {
+        padding: 20px 0px 20px 0px;
+    }
+}
+
+@media (max-width: 575px) {
+    .down-box-text-h {
+        font-size: 1.5rem;
+    }
+
+    .down-box-text {
+        font-size: 1.5rem;
+    }
+    main #contact h3 {
+        font-size: 2.1rem;
+    }
+    main .down-box {
+        padding: 15px 0px 15px 0px;
+    }
+}
+
+
+@media (max-width: 479px) {
+    .down-box-text-h {
+        font-size: 1.2rem;
+    }
+    .down-box-text {
+        font-size: 1.1rem;
+    }
+    main .down-box {
+        padding: 10px 0px 10px 0px;
+    }
+}
+
+
+
+.copyright {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto auto;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
