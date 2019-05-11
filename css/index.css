@@ -105,8 +105,12 @@ main .about {
 
 main .workproperties,
 main .about {
+    padding: 10px 0 10px 0;
     text-align: center;
+}
 
+main .workproperties {
+    border-bottom: double;
 }
 
 header .logo,
@@ -216,6 +220,7 @@ header .banner {
 }
 
 main #home {
+    padding: 10px 0 10px 0;
     display: grid;
     grid-template-rows: 7fr 2fr;
     grid-gap: 10px;
@@ -378,7 +383,6 @@ main .option-list {
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-bottom: double;
 }
 
 @media (min-width: 1040px) {
