@@ -50,7 +50,7 @@ document.getElementById('gameStartButton').addEventListener('click', () => docum
 
 document.querySelector('.playgame').onmouseover = function() {
     count++;
-    if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 50);
+    if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 500);
 };
 
 const startButton = document.querySelector('.startButton');
@@ -141,9 +141,11 @@ eighthButton.addEventListener('click', eighthButtonPressed);
 
 function eighthButtonPressed(e) {
     e.preventDefault();
+
+    if (countButtonClick == 0 && !pushButtonArr.includes(8)) ticTacToe(8);
 }
 
-let pushButtonArr = [];
+let pushButtonArr = [8];
 let countButtonClick = 0;
 let countGame = 0;
 let firstMove;
@@ -151,6 +153,11 @@ let buttonArr;
 let gameOver = false;
 let gameDraw = false;
 let gameMode = 0;
+
+
+function getGameMode() {
+    Math.random() * 2 > 1 ? gameMode = 1 : gameMode = 0;
+}
 
 
 function allClear() {
@@ -175,178 +182,194 @@ function allClear() {
         val.classList.remove('btn-light');
         val.classList.add('btn-light')
     });
-    dotButton.innerHTML = 'X';
+    eighthButton.innerHTML = 'X';
     pushButtonArr = [];
+    //getGameMode();
+    if (gameMode == 0) {
+        pushButtonArr = [8];
+    }
+    else {
+        pushButtonArr = [];
+
+    }
 }
 
 function ticTacToe(num) {
 
-    pushButtonArr.push(num);
-    countButtonClick = 1;
+    if (gameMode == 0) {
 
-    if (countGame == 0) { firstMove = num }
 
-    function buttonArrPosition(val) {
-        for (let i = 0; i < buttonArr.length; i++) {
-            if (buttonArr[i] == val) return i;
+
+        pushButtonArr.push(num);
+        countButtonClick = 1;
+
+        if (countGame == 0) { firstMove = num }
+
+        function buttonArrPosition(val) {
+            for (let i = 0; i < buttonArr.length; i++) {
+                if (buttonArr[i] == val) return i;
+            }
+        }
+
+        if (countGame == 0) {
+            buttonArr = [0, 1, 2, 3, 4, 5, 6, 7];
+        }
+
+        const setButton = {
+            0: zeroButton,
+            1: firstButton,
+            2: secondButton,
+            3: thirdButton,
+            4: fourthButton,
+            5: fifthButton,
+            6: sixthButton,
+            7: seventhButton
+        };
+
+        function buttonChangeClassPlayer(number) {
+            setButton[buttonArr[buttonArrPosition(number)]].classList.remove('btn-light');
+            setButton[buttonArr[buttonArrPosition(number)]].classList.add('btn-warning');
+        }
+
+        function buttonChangeClassComp(number) {
+            setButton[buttonArr[buttonArrPosition(number)]].classList.remove('btn-light');
+            setButton[buttonArr[buttonArrPosition(number)]].classList.add('btn-info');
+        }
+
+        if (firstMove % 2 == 0) {
+            if (countGame == 0) {
+                let shiftButton = num;
+                while (shiftButton > 0) {
+                    buttonArr.push(buttonArr.shift());
+                    shiftButton--;
+                }
+            };
+            if (!gameOver) {
+                setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
+                buttonChangeClassPlayer(num);
+                setTimeout(() => countButtonClick = 0, 100) //1500ms-------------------------------------------
+            };
+            setTimeout(() => {
+
+                if (!gameOver) switch (countGame) {
+                    case (0):
+                        countGame++;
+                        setButton[buttonArr[7]].innerHTML = 'X';
+                        buttonChangeClassComp(buttonArr[7]);
+                        pushButtonArr.push(buttonArr[7]);
+                        break;
+                    case (1):
+                        countGame++;
+                        if (setButton[buttonArr[3]].innerHTML !== 'O') {
+                            setButton[buttonArr[3]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[3]);
+                            pushButtonArr.push(buttonArr[3]);
+                            gameOver = true;
+                        }
+                        else {
+                            setButton[buttonArr[1]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[1]);
+                            pushButtonArr.push(buttonArr[1]);
+                        }
+                        break;
+                    case (2):
+                        countGame++;
+                        if (setButton[buttonArr[5]].innerHTML !== 'O') {
+                            setButton[buttonArr[5]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[5]);
+                            pushButtonArr.push(buttonArr[5]);
+                            gameOver = true;
+                        }
+                        else {
+                            setButton[buttonArr[6]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[6]);
+                            pushButtonArr.push(buttonArr[6]);
+                        }
+                        break;
+                    case (3):
+                        countGame++;
+                        if (setButton[buttonArr[2]].innerHTML !== 'O') {
+                            setButton[buttonArr[2]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[2]);
+                            pushButtonArr.push(buttonArr[2]);
+                            gameOver = true;
+                        }
+                        else {
+                            setButton[buttonArr[4]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[4]);
+                            pushButtonArr.push(buttonArr[4]);
+                            gameDraw = true;
+                        }
+                        break;
+                }
+                if (gameOver) eighthButton.innerHTML = 'Lost';
+                if (gameDraw) {
+                    gameOver = true;
+                    eighthButton.innerHTML = 'Draw'
+                };
+            }, 80); //1000ms-------------------------------------------------------------------------------------
+
+        }
+        else {
+            if (countGame == 0) {
+                let shiftButton = num;
+                while (shiftButton > 1) {
+                    buttonArr.push(buttonArr.shift());
+                    shiftButton--;
+                }
+            };
+
+            if (!gameOver) {
+                setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
+                buttonChangeClassPlayer(num);
+                setTimeout(() => countButtonClick = 0, 100) //1500ms-----------------------------------------------
+            };
+            setTimeout(() => {
+
+                if (!gameOver) switch (countGame) {
+                    case (0):
+                        countGame++;
+                        setButton[buttonArr[7]].innerHTML = 'X';
+                        buttonChangeClassComp(buttonArr[7]);
+                        pushButtonArr.push(buttonArr[7]);
+                        break;
+                    case (1):
+                        countGame++;
+                        if (setButton[buttonArr[3]].innerHTML !== 'O') {
+                            setButton[buttonArr[3]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[3]);
+                            pushButtonArr.push(buttonArr[3]);
+                            gameOver = true;
+                        }
+                        else {
+                            setButton[buttonArr[6]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[6]);
+                            pushButtonArr.push(buttonArr[6]);
+                        }
+
+                        break;
+                    case (2):
+                        countGame++;
+                        if (setButton[buttonArr[2]].innerHTML !== 'O') {
+                            setButton[buttonArr[2]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[2]);
+                            pushButtonArr.push(buttonArr[2]);
+                            gameOver = true;
+                        }
+                        else {
+                            setButton[buttonArr[0]].innerHTML = 'X';
+                            buttonChangeClassComp(buttonArr[0]);
+                            pushButtonArr.push(buttonArr[0]);
+                            gameOver = true;
+                        }
+                        break;
+                }
+                if (gameOver) eighthButton.innerHTML = 'Lost';
+            }, 80); //1000ms----------------------------------------------------------------------------------------------
         }
     }
-
-    if (countGame == 0) {
-        buttonArr = [0, 1, 2, 3, 4, 5, 6, 7];
-    }
-
-    const setButton = {
-        0: zeroButton,
-        1: firstButton,
-        2: secondButton,
-        3: thirdButton,
-        4: fourthButton,
-        5: fifthButton,
-        6: sixthButton,
-        7: seventhButton
-    };
-
-    function buttonChangeClassPlayer(number) {
-        setButton[buttonArr[buttonArrPosition(number)]].classList.remove('btn-light');
-        setButton[buttonArr[buttonArrPosition(number)]].classList.add('btn-warning');
-    }
-
-    function buttonChangeClassComp(number) {
-        setButton[buttonArr[buttonArrPosition(number)]].classList.remove('btn-light');
-        setButton[buttonArr[buttonArrPosition(number)]].classList.add('btn-info');
-    }
-
-    if (firstMove % 2 == 0) {
-        if (countGame == 0) {
-            let shiftButton = num;
-            while (shiftButton > 0) {
-                buttonArr.push(buttonArr.shift());
-                shiftButton--;
-            }
-        };
-        if (!gameOver) {
-            setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
-            buttonChangeClassPlayer(num);
-            setTimeout(() => countButtonClick = 0, 1500)
-        };
-        setTimeout(() => {
-
-            if (!gameOver) switch (countGame) {
-                case (0):
-                    countGame++;
-                    setButton[buttonArr[7]].innerHTML = 'X';
-                    buttonChangeClassComp(buttonArr[7]);
-                    pushButtonArr.push(buttonArr[7]);
-                    break;
-                case (1):
-                    countGame++;
-                    if (setButton[buttonArr[3]].innerHTML !== 'O') {
-                        setButton[buttonArr[3]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[3]);
-                        pushButtonArr.push(buttonArr[3]);
-                        gameOver = true;
-                    }
-                    else {
-                        setButton[buttonArr[1]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[1]);
-                        pushButtonArr.push(buttonArr[1]);
-                    }
-                    break;
-                case (2):
-                    countGame++;
-                    if (setButton[buttonArr[5]].innerHTML !== 'O') {
-                        setButton[buttonArr[5]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[5]);
-                        pushButtonArr.push(buttonArr[5]);
-                        gameOver = true;
-                    }
-                    else {
-                        setButton[buttonArr[6]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[6]);
-                        pushButtonArr.push(buttonArr[6]);
-                    }
-                    break;
-                case (3):
-                    countGame++;
-                    if (setButton[buttonArr[2]].innerHTML !== 'O') {
-                        setButton[buttonArr[2]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[2]);
-                        pushButtonArr.push(buttonArr[2]);
-                        gameOver = true;
-                    }
-                    else {
-                        setButton[buttonArr[4]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[4]);
-                        pushButtonArr.push(buttonArr[4]);
-                        gameDraw = true;
-                    }
-                    break;
-            }
-            if (gameOver) dotButton.innerHTML = 'Lost';
-            if (gameDraw) {
-                gameOver = true;
-                dotButton.innerHTML = 'Draw'
-            };
-        }, 1000);
-
-    }
     else {
-        if (countGame == 0) {
-            let shiftButton = num;
-            while (shiftButton > 1) {
-                buttonArr.push(buttonArr.shift());
-                shiftButton--;
-            }
-        };
 
-        if (!gameOver) {
-            setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
-            buttonChangeClassPlayer(num);
-            setTimeout(() => countButtonClick = 0, 1500)
-        };
-        setTimeout(() => {
-
-            if (!gameOver) switch (countGame) {
-                case (0):
-                    countGame++;
-                    setButton[buttonArr[7]].innerHTML = 'X';
-                    buttonChangeClassComp(buttonArr[7]);
-                    pushButtonArr.push(buttonArr[7]);
-                    break;
-                case (1):
-                    countGame++;
-                    if (setButton[buttonArr[3]].innerHTML !== 'O') {
-                        setButton[buttonArr[3]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[3]);
-                        pushButtonArr.push(buttonArr[3]);
-                        gameOver = true;
-                    }
-                    else {
-                        setButton[buttonArr[6]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[6]);
-                        pushButtonArr.push(buttonArr[6]);
-                    }
-
-                    break;
-                case (2):
-                    countGame++;
-                    if (setButton[buttonArr[2]].innerHTML !== 'O') {
-                        setButton[buttonArr[2]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[2]);
-                        pushButtonArr.push(buttonArr[2]);
-                        gameOver = true;
-                    }
-                    else {
-                        setButton[buttonArr[0]].innerHTML = 'X';
-                        buttonChangeClassComp(buttonArr[0]);
-                        pushButtonArr.push(buttonArr[0]);
-                        gameOver = true;
-                    }
-                    break;
-            }
-            if (gameOver) dotButton.innerHTML = 'Lost';
-        }, 1000);
     }
 
 }
