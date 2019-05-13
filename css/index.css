@@ -163,7 +163,7 @@ header .logo-container {
 }
 
 .game-container {
-    z-index: 49;
+    z-index: 1050;
     display: grid;
     grid-template-columns: auto;
     justify-content: center;
