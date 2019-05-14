@@ -1,3 +1,22 @@
+let count = 0;
+
+document.getElementById('gameStartButton').addEventListener('click', () => document.querySelector('.game-container').hidden = false);
+
+const hiddenButton = document.querySelector('.playgame');
+hiddenButton.addEventListener('click', hiddenButtonPressed)
+function hiddenButtonPressed(e) {
+    e.preventDefault();
+    count++;
+    if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 100);
+}
+
+/*
+document.querySelector('.playgame').onmouseover = function() {
+    count++;
+    if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 100);
+};
+*/
+
 const startButton = document.querySelector('.startButton');
 startButton.addEventListener('click', startButtonPressed);
 
@@ -98,133 +117,219 @@ let buttonArr;
 let gameOver = false;
 let gameDraw = false;
 let gameMode = 0;
+let gameVinCheck = [];
 let numberMove;
-let vinPosZero = [[2,3,4],[4,5,6],[1,8,5],[2,8,6],[3,8,7]];
+let firstMovePlayer = 0;
+let vinPosZero = [
+    [0, 1, 2],
+    [0, 7, 6],
+    [2, 3, 4],
+    [4, 5, 6],
+    [1, 8, 5],
+    [2, 8, 6],
+    [3, 8, 7],
+    [0, 8, 4]
+];
 
 function getGameMode() {
     Math.random() * 2 > 1 ? gameMode = 1 : gameMode = 0;
 }
 
-function getArrayTemp(stepArray,vinPos) {
+function getCompMove(stepArray) {
+    let move;
+    let moveArrFirst = [2, 6];
+    let moveArrSecond = [0, 4];
+    let moveArr3 = { 0: 4, 1: 5, 2: 6, 3: 7, 4: 0, 5: 1, 6: 2, 7: 3 };
 
-  function getArray(stepArray) {
-      let check = 0;
-      let index = 0;
-      let stepArraytemp = [...stepArray];
+    switch (stepArray.length) {
+        case (1):
+            let check = 0;
+            while (check == 0) {
+                move = Math.floor(Math.random() * 4) * 2;
+                move == 4 * 2 || move == 0 ? check = 0 : check = 1;
+            }
+            return move;
+        case (3):
+            if (stepArray[1] == 0 && stepArray[2] == 4) {
+                let check = 0;
+                while (check == 0) {
+                    move = Math.floor(Math.random() * 2);
+                    console.log(move);
+                    move == 2 ? check = 0 : move == 0 ? check = 1 : check = 1
+                }
+                move = moveArrFirst[move];
+                return move;
+            }
+            else if (stepArray[1] == 4 && stepArray[2] == 0) {
+                let check = 0;
+                while (check == 0) {
+                    move = Math.floor(Math.random() * 2);
+                    console.log(move);
+                    move == 2 ? check = 0 : move == 0 ? check = 1 : check = 1
+                }
+                move = moveArrFirst[move];
+                return move;
+            }
+            else if (stepArray[1] == 2 && stepArray[2] == 6) {
+                let check = 0;
+                while (check == 0) {
+                    move = Math.floor(Math.random() * 2);
+                    console.log(move);
+                    move == 2 ? check = 0 : move == 0 ? check = 1 : check = 1
+                }
+                move = moveArrSecond[move];
+                return move;
+            }
+            else if (stepArray[1] == 6 && stepArray[2] == 2) {
+                let check = 0;
+                while (check == 0) {
+                    move = Math.floor(Math.random() * 2);
+                    console.log(move);
+                    move == 2 ? check = 0 : move == 0 ? check = 1 : check = 1
+                }
+                move = moveArrSecond[move];
+                return move;
+            }
+            else return move = moveArr3[stepArray[2]];
+        case (5):
+            move = moveArr3[stepArray[4]];
+            if (stepArray.includes(move)) {
+                let arr = [...stepArray];
+                let allMove = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+                allMove = allMove.filter(el => !stepArray.includes(el));
+                console.log(allMove);
+                Math.random() > 0.5 ? move = allMove[0] : Math.random() > 0.5 ? move = allMove[1] : Math.random() > 0.5 ? move = allMove[2] : move = allMove[3];
+            }
+            return move;
+        case (7):
+            move = moveArr3[stepArray[6]];
+            if (stepArray.includes(move)) {
+                let arr = [...stepArray];
+                let allMove = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+                allMove = allMove.filter(el => !stepArray.includes(el))
+                Math.random() > 0.5 ? move = allMove[0] : move = allMove[1];
+            }
+            return move;
 
-      if (stepArray.length == 1) {
-        check = 0;
-          while (check == 0) {
-              index = Math.floor(Math.random() * 4) * 2 ;
-              index == 4 * 2 || index == 2 || index == 6   ? check = 0 : check = 1;
-          }
-          stepArraytemp.push(index);
-      }
-
-      let arrVinTemp = [...stepArraytemp];
-      
-      let move = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-
-      stepArraytemp.forEach(val => move = move.filter(el => el !== val));
-
-      if (stepArray.length == 1) {
-              while (stepArray.length < 7 ? stepArray.length < 3 ? arrVinTemp.length < stepArray.length + 4 : arrVinTemp.length < stepArray.length + 2 : move.length > 0 ) {
-          check = 0;
-          while (check == 0) {
-              index = Math.floor(Math.random() * (move.length));
-              index == move.length ? check = 0 : check = 1;
-          }
-          arrVinTemp.push(move[index]);
-          move.splice(index, 1);
-      }
-
-      } else {
-      while (stepArray.length < 7 ? stepArray.length < 3 ? arrVinTemp.length < stepArray.length + 4 : arrVinTemp.length < stepArray.length + 2 : move.length > 0 ) {
-          check = 0;
-          while (check == 0) {
-              index = Math.floor(Math.random() * (move.length));
-              index == move.length ? check = 0 : check = 1;
-          }
-          arrVinTemp.push(move[index]);
-          move.splice(index, 1);
-      }
-      }
-      return arrVinTemp;
-  }
-
-  let arrayNominate = getArray(stepArray);
-
-  //console.log(arrayNominate);  
-  
-  function getPlayerMoveArray (arrMove,stepArray) {
-    let playerMoveArray = [...arrMove];
-    const computerMoveLong = [7,5,3,1];
-    const computerMove = [6,3,2,1];
-    const computerMoveShort = [4,1];
-    if (stepArray.length <=3) { 
-      computerMoveShort.forEach(move=>playerMoveArray.splice(move,1))
-    } else if (stepArray.length == 5 ) {
-      computerMove.forEach(move=>playerMoveArray.splice(move,1))
-    };
-
-    return playerMoveArray;
-  }
-  
-  let arrayNominatePlayerMove = getPlayerMoveArray(arrayNominate,stepArray);
-
-  //console.log(arrayNominatePlayerMove);
-  
-    function getArrayCheck(vinPos, testArray , stepArray) {
-      let testArrayTrue;
-      if (stepArray.length <=3 ) {
-        testArrayTrue = false;
-      for (let i = 0; i < vinPos.length; i++){
-        let testArrayTempShort = testArray;
-        vinPos[i].forEach (val => testArrayTempShort = testArrayTempShort.filter(el=> el !== val));
-        (testArray.length - testArrayTempShort.length ) ==3 ? testArrayTrue = true : '';
-      }
-      } else if (stepArray.length == 5) {
-        testArrayTrue = false;
-      for (let i = 0; i < vinPos.length; i++){
-        let testArrayTempShort = testArray;
-        vinPos[i].forEach (val => testArrayTempShort = testArrayTempShort.filter(el=> el !== val));
-        (testArray.length - testArrayTempShort.length ) ==3 ? testArrayTrue = true : '';
-      }
-      } else {
-      testArrayTrue = true;
-      for (let i = 0; i < vinPos.length; i++){
-        let testArrayTemp = testArray;
-        vinPos[i].forEach (val => testArrayTemp = testArrayTemp.filter(el=> el !== val));
-        (testArray.length - testArrayTemp.length ) ==3 ? testArrayTrue = false : '';
-      }
-      }
-      return testArrayTrue;
     }
 
-  let playerMoveNotLose = getArrayCheck(vinPos,arrayNominatePlayerMove,stepArray);
-
-  //console.log(playerMoveNotLose);
-
-  return [playerMoveNotLose,arrayNominate,arrayNominatePlayerMove];
-  
-}
-  
-function getNotluseArray(stepArray,vinPos) {  
-  let arrayNominate;  
-  do { arrayNominate = getArrayTemp(stepArray,vinPos)} while (!arrayNominate[0]);
-
-  //console.log(arrayNominate);
-  
-  return arrayNominate[1];
-
 }
 
+function vinCheck(stepArray) {
+    let stepArraytemp = [...stepArray];
+    stepArraytemp.shift();
+    stepArraytemp.pop();
+    const vinPosComp = [
+        [0, 1, 2],
+        [2, 3, 4],
+        [4, 5, 6],
+        [6, 7, 0]
+    ];
+    let vinPosCompTemp = vinPosComp;
+    let arr = [];
+    for (let i = 0; i < vinPosCompTemp.length; i++) {
+        let testArrayTemp = stepArraytemp;
+        if (!vinPosCompTemp[i].includes(stepArraytemp[1])) {
+            testArrayTemp.forEach(val => vinPosCompTemp[i] = vinPosCompTemp[i].filter(el => el !== val));
+            vinPosCompTemp[i].length !== 1 ? '' : arr.push(true, vinPosCompTemp[i]);
+        }
+    }
+    if (!arr[0]) {
+        arr.push(false, [])
+    }
+    else if (arr[1][0] == stepArray[4]) {
+        arr = [];
+        arr.push(false, [])
+    };
+    return arr;
+}
+
+/*
+function vinCheckSecond(stepArray) {
+    let stepArraytemp = [...stepArray];
+    stepArraytemp.shift();
+    stepArraytemp.pop();
+    stepArraytemp.splice(3, 1);
+    stepArraytemp.splice(1, 1);
+    console.log(stepArraytemp);
+    const vinPosComp = [
+        [0, 1, 2],
+        [2, 3, 4],
+        [4, 5, 6],
+        [6, 7, 0]
+    ];
+    let vinPosCompTemp = vinPosComp;
+    let arr = [];
+    for (let i = 0; i < vinPosCompTemp.length; i++) {
+        let testArrayTemp = stepArraytemp;
+        if (!vinPosCompTemp[i].includes(stepArraytemp[1])) {
+            testArrayTemp.forEach(val => vinPosCompTemp[i] = vinPosCompTemp[i].filter(el => el !== val));
+            vinPosCompTemp[i].length !== 1 ? '' : arr.push(true, vinPosCompTemp[i]);
+        }
+    }
+    if (!arr[0]) {
+        arr.push(false, [])
+    }
+    else if (arr[1][0] == stepArray[2]) {
+        arr = [];
+        arr.push(false, [])
+    }
+    else if (arr[1][0] == stepArray[4]) {
+        arr = [];
+        arr.push(false, [])
+    }
+    else if (arr[1][0] == stepArray[6]) {
+        arr = [];
+        arr.push(false, [])
+    };
+    return arr;
+}
+*/
+
+function vinCheckSecond(stepArray) {
+  let stepArraytemp = [...stepArray];
+  stepArraytemp.shift();
+  stepArraytemp.pop();
+
+  stepArraytemp.splice(3, 1);
+  stepArraytemp.splice(1, 1);
+  console.log(stepArraytemp);
+  const vinPosComp = [[0, 1, 2], [2, 3, 4], [4, 5, 6], [6, 7, 0]];
+  let vinPosCompTemp = vinPosComp;
+  let arr = [];
+  let arr2 = [];
+  for (let i = 0; i < vinPosCompTemp.length; i++) {
+    let testArrayTemp = stepArraytemp;
+
+    testArrayTemp.forEach(val => vinPosCompTemp[i] = vinPosCompTemp[i].filter(el => el !== val));
+
+    vinPosCompTemp[i].length !== 1 ? '' : arr.push([true, vinPosCompTemp[i]]);
+
+  }
+
+  if (!arr[0]) {
+    arr.push(false, [])
+  } else {
+    arr.forEach( val => arr2.push(val[1][0]))
+    let arrcheck = [...stepArray];
+    arrcheck.splice(5,1);
+    arrcheck.splice(3,1);
+    arrcheck.splice(1,1);
+    arrcheck.splice(0,1);
+    arrcheck.forEach(val => arr2 = arr2.filter(el => el!==val ));
+    arr2 = [true,[arr2.shift()]];
+    return arr2;
+  }
+  return arr;
+}
 
 function allClear() {
     gameOver = false;
     gameDraw = false;
     countGame = 0;
     countButtonClick = 0;
+    gameVinCheck = [];
+    firstMovePlayer = 0;
     const setButtonArr = [
         zeroButton,
         firstButton,
@@ -244,10 +349,7 @@ function allClear() {
         val.classList.add('btn-light')
     });
 
-    pushButtonArr = [];
-
-    //getGameMode();
-    gameMode = 1;
+    getGameMode();
 
     if (gameMode == 0) {
         pushButtonArr = [8];
@@ -447,97 +549,87 @@ function ticTacToe(num) {
     else {
 
         if (gameMode == 1) {
+            if (num == 8 || firstMovePlayer == 8) {
 
-            pushButtonArr.push(num);
-            countButtonClick = 1;
+                pushButtonArr.push(num);
+                countButtonClick = 1;
 
-            if (countGame == 0) { firstMove = num }
 
-            if (countGame == 0) {
-                buttonArr = [0, 1, 2, 3, 4, 5, 6, 7];
-            }
+                if (countGame == 0) { firstMove = num; firstMovePlayer = num; }
 
-            if (firstMove == 8) {
+                if (countGame == 0) {
+                    buttonArr = [0, 1, 2, 3, 4, 5, 6, 7];
+                }
 
-                if (countGame == 0) { buttonArr.push(num) }
+                if (firstMove == 8) {
 
-                if (!gameOver) {
-                    setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
-                    buttonChangeClassPlayer(num);
-                    setTimeout(() => countButtonClick = 0, 100) //1500ms-------------------------------------------
-                };
+                    if (countGame == 0) { buttonArr.push(num) }
 
-                setTimeout(() => {
-
-                    if (!gameOver) switch (countGame) {
-                        case (0):
-                            countGame++;
-                            numberMove = getNotluseArray(pushButtonArr,vinPosZero)[1];
-                            setButton[buttonArr[numberMove]].innerHTML = 'X'
-                            buttonChangeClassComp(buttonArr[numberMove]);
-                            pushButtonArr.push(buttonArr[numberMove]);
-                            break;
-                        case (1):
-                            countGame++;
-                            numberMove = getNotluseArray(pushButtonArr,vinPosZero)[3];
-                            setButton[buttonArr[numberMove]].innerHTML = 'X'
-                            buttonChangeClassComp(buttonArr[numberMove]);
-                            pushButtonArr.push(buttonArr[numberMove]);
-                            break;
-                        case (2):
-                            countGame++;
-                            numberMove = getNotluseArray(pushButtonArr,vinPosZero)[5];
-                            setButton[buttonArr[numberMove]].innerHTML = 'X'
-                            buttonChangeClassComp(buttonArr[numberMove]);
-                            pushButtonArr.push(buttonArr[numberMove]);
-                            break;
-                        case (3):
-                            countGame++;
-                            numberMove = getNotluseArray(pushButtonArr,vinPosZero)[7];
-                            setButton[buttonArr[numberMove]].innerHTML = 'X'
-                            buttonChangeClassComp(buttonArr[numberMove]);
-                            pushButtonArr.push(buttonArr[numberMove]);
-                            gameDraw = true;
-                            break;
-                    }
-                    if (gameOver) eighthButton.innerHTML = 'Lost';
-                    if (gameDraw) {
-                        gameOver = true;
-                        eighthButton.innerHTML = 'Draw'
-                    };
-                }, 80)
-
-            }
-            else {
-                if (firstMove % 2 == 0) {
-                    if (countGame == 0) {
-                        let shiftButton = num;
-                        while (shiftButton > 0) {
-                            buttonArr.push(buttonArr.shift());
-                            shiftButton--;
-                        }
-                    };
                     if (!gameOver) {
                         setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
                         buttonChangeClassPlayer(num);
                         setTimeout(() => countButtonClick = 0, 100) //1500ms-------------------------------------------
                     };
 
-                }
-                else {
-                    if (countGame == 0) {
-                        let shiftButton = num;
-                        while (shiftButton > 1) {
-                            buttonArr.push(buttonArr.shift());
-                            shiftButton--;
-                        }
-                    };
+                    setTimeout(() => {
 
-                    if (!gameOver) {
-                        setButton[buttonArr[buttonArrPosition(num)]].innerHTML = 'O';
-                        buttonChangeClassPlayer(num);
-                        setTimeout(() => countButtonClick = 0, 100) //1500ms-----------------------------------------------
-                    };
+                        if (!gameOver) switch (countGame) {
+                            case (0):
+                                countGame++;
+                                numberMove = getCompMove(pushButtonArr);
+                                setButton[numberMove].innerHTML = 'X';
+                                buttonChangeClassComp(numberMove);
+                                pushButtonArr.push(numberMove);
+                                break;
+                            case (1):
+                                countGame++;
+                                numberMove = getCompMove(pushButtonArr);
+                                setButton[numberMove].innerHTML = 'X';
+                                buttonChangeClassComp(numberMove);
+                                pushButtonArr.push(numberMove);
+                                break;
+                            case (2):
+                                countGame++;
+                                gameVinCheck = vinCheck(pushButtonArr);
+                                if (gameVinCheck[0]) {
+                                    setButton[gameVinCheck[1]].innerHTML = 'X';
+                                    buttonChangeClassComp(gameVinCheck[1]);
+                                    pushButtonArr.push(gameVinCheck[1]);
+                                    gameOver = true;
+                                }
+                                else {
+                                    numberMove = getCompMove(pushButtonArr);
+                                    setButton[numberMove].innerHTML = 'X';
+                                    buttonChangeClassComp(numberMove);
+                                    pushButtonArr.push(numberMove);
+                                }
+
+                                break;
+                            case (3):
+                                countGame++;
+                                gameVinCheck = vinCheckSecond(pushButtonArr);
+                                if (gameVinCheck[0] && gameVinCheck[1][0] !== undefined) {
+                                    setButton[gameVinCheck[1]].innerHTML = 'X';
+                                    buttonChangeClassComp(gameVinCheck[1]);
+                                    pushButtonArr.push(gameVinCheck[1]);
+                                    gameOver = true;
+                                }
+                                else {
+                                    numberMove = getCompMove(pushButtonArr);
+                                    setButton[numberMove].innerHTML = 'X';
+                                    buttonChangeClassComp(numberMove);
+                                    pushButtonArr.push(numberMove);
+                                    gameDraw = true;
+                                }
+                                break;
+                        }
+                        if (gameOver) eighthButton.innerHTML = 'Lost';
+                        if (gameDraw) {
+                            gameOver = true;
+                            eighthButton.innerHTML = 'Draw'
+                        };
+                    }, 80)
+
                 }
             }
 

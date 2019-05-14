@@ -1,15 +1,3 @@
-/*
-
-  {
-    "id": 1282027,
-    "name": "Male",
-    "country": "MV",
-    "coord": {
-      "lon": 73.508881,
-      "lat": 4.1748
-    }
-  }
-*/
 
 const forecastAPI = 'https://api.openweathermap.org/data/2.5/weather?id=1282027';
 const keyAPI = '&APPID=0746e9cef51e45cd40c66c3f06fcecb1';
@@ -25,8 +13,12 @@ fetch(forecastAPI + keyAPI)
         document.getElementById('wind').innerHTML = `<p> ${weatherdata.wind.speed} м/с</p>`;
     });
 
+
+
 const clockContainer = document.querySelector('.clock');
 setInterval(() => clockContainer.innerText = (new Date()).toLocaleTimeString(), 1000);
+
+
 
 const logoHTML = document.querySelector('.logo').innerHTML;
 
@@ -44,12 +36,5 @@ function shiftLogo() {
         document.querySelector('.logoShift').innerHTML = '';
     }
 }
-let count = 0;
 
-document.getElementById('gameStartButton').addEventListener('click', () => document.querySelector('.game-container').hidden = false);
-
-document.querySelector('.playgame').onmouseover = function() {
-    count++;
-    if (count == 1) setTimeout(() => document.querySelector('.game-container').hidden = false, 500);
-};
 
