@@ -456,7 +456,7 @@ main .contact-box {
     text-align: center;
 }
 
-main #contact {
+main #contact, main #cooperation  {
     display: grid;
     grid-gap: 20px;
 
@@ -555,7 +555,7 @@ footer {
 
 }
 
-main #contact h3 {
+main #contact h3, main #cooperation h3 {
     font-size: 3.0rem;
 }
 
@@ -567,7 +567,7 @@ main #contact h3 {
     .down-box-text {
         font-size: 1.7rem;
     }
-    main #contact h3 {
+    main #contact h3, main #cooperation h3 {
         font-size: 2.4rem;
     }
     main .down-box {
@@ -584,7 +584,7 @@ main #contact h3 {
     .down-box-text {
         font-size: 1.4rem;
     }
-    main #contact h3 {
+    main #contact h3, main #cooperation h3 {
         font-size: 2.1rem;
     }
     main .down-box {
@@ -600,7 +600,7 @@ main #contact h3 {
     .down-box-text {
         font-size: 1.8rem;
     }
-    main #contact h3 {
+    main #contact h3, main #cooperation h3 {
         font-size: 2.4rem;
     }
     main .down-box {
@@ -616,7 +616,7 @@ main #contact h3 {
     .down-box-text {
         font-size: 1.5rem;
     }
-    main #contact h3 {
+    main #contact h3, main #cooperation h3 {
         font-size: 2.1rem;
     }
     main .down-box {
